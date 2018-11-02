@@ -1,8 +1,3 @@
 # mental_illness_detector
 
-A new Flutter application.
-
-## Getting Started
-
-For help getting started with Flutter, view our online
-[documentation](https://flutter.io/).
+If you are hypochondriac you came to the right place, this app will help you to detect early signs of mental illnesses.
