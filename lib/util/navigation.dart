@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:mental_illness_detector/ui/firstSection.dart';
-import 'package:mental_illness_detector/ui/genericView.dart';
 import 'package:mental_illness_detector/ui/resultSection.dart';
 import 'package:mental_illness_detector/ui/secondSection.dart';
 import 'package:mental_illness_detector/ui/thirdSection.dart';
@@ -17,9 +16,6 @@ class Navigation{
 
   static void navigateToResult(BuildContext context) =>
       Navigator.push(context, MaterialPageRoute(builder: (_) => ResultSection()));
-
-  static void navigateToGeneric(BuildContext context) =>
-      Navigator.push(context, MaterialPageRoute(builder: (_) => GenericView()));
 
   static void popNavigation(context) => Navigator.of(context).pop(true);
 }
