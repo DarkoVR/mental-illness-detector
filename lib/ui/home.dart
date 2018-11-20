@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:mental_illness_detector/ui/questionsView.dart';
+import 'package:mental_illness_detector/util/navigation.dart';
 import 'package:mental_illness_detector/util/strings.dart';
 
 
@@ -9,14 +9,12 @@ class Home extends StatefulWidget {
   final String title;
 
   @override
-  _Home createState() => new _Home();
+  CurrentHome createState() => new CurrentHome();
 }
 
-class _Home extends State<Home> {
+class CurrentHome extends State<Home> {
 
-  void _home(){
-    Navigator.push(context, MaterialPageRoute(builder: (context) => QuestionsView()),);
-  }
+  void _home() => Navigation.navigateToFirst(context);
 
   @override
   Widget build(BuildContext context) {
@@ -52,14 +50,18 @@ class _Home extends State<Home> {
                           Container(
                             width: screenSize.width,
                             child: RaisedButton(
-                              child: new Text(
-                                'Iniciar',
-                                style: new TextStyle(
-                                    color: Colors.white
-                                ),
-                              ),
                               onPressed: _home,
+                              child: new Text(
+                                Strings.START,
+                                style: new TextStyle(
+                                    fontWeight: FontWeight.normal,
+                                    fontSize: 25.0,
+                                    color: Colors.white),
+                              ),
                               color: Colors.red,
+                              shape: new RoundedRectangleBorder(
+                                  borderRadius:
+                                  new BorderRadius.circular(20.0)),
                             ),
                             margin: EdgeInsets.only(
                                 top: 30.0
