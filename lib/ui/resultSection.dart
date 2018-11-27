@@ -19,6 +19,10 @@ class ClicksPerYear {
 }
 
 class _MyHomePageState extends State<ResultSection> {
+
+  double paddingSize = 4.0;
+
+
   @override
   Widget build(BuildContext context) {
 
@@ -39,13 +43,13 @@ class _MyHomePageState extends State<ResultSection> {
     String _result(){
       String result = "";
       if(depression > 4){
-        result = "Estas hundido en la depresión :c";
+        result = "Estás hundido en la depresión.";
       }else if(stress > 2){
-        result = "Estas hundido en el estres :c";
+        result = "Estás hundido en el estres.";
       }else if(anxiety > 2){
-        result = "Estas hundido en la ansiedad :c";
+        result = "Estás hundido en la ansiedad.";
       }else{
-        result = "Estas sanito :)";
+        result = "No tienes problemas psicológicos.";
       }
       return result;
     }
@@ -78,6 +82,7 @@ class _MyHomePageState extends State<ResultSection> {
       key: key,
       appBar: new AppBar(
         title: new Text(Strings.RESULTS),
+        centerTitle: true,
       ),
       body: new Center(
         child: new Column(
@@ -87,16 +92,22 @@ class _MyHomePageState extends State<ResultSection> {
               textAlign: TextAlign.center,
               style: Theme.of(context).textTheme.display1,
             ),
+            new Padding(padding: new EdgeInsets.all(paddingSize),),
+            new Text(
+                'Rojo: Depresión con ${depressionPercentage.toStringAsFixed(2)}%\n'+
+                'Amarillo: Estres con ${stressPercentage.toStringAsFixed(2)}%\n'+
+                'Verde: Ansiedad con ${anxietyPercentage.toStringAsFixed(2)}%\n',
+              textAlign: TextAlign.center,
+            ),
             chartWidget,
           ],
         ),
       ),
       floatingActionButton: new FloatingActionButton(
         onPressed: () => _print(
-            'Amarillo: Depresión con $depressionPercentage%\n'+
-            'Rojo: Estres con $stressPercentage%\n'+
-            'Verde: Ansiedad con $anxietyPercentage%\n'),
-        tooltip: 'Increment',
+          "Gracias por participar!"
+        ),
+        tooltip: 'Info',
         child: new Icon(Icons.info),
       ),
     );
